@@ -7,7 +7,7 @@ export const generateUniqueUrlId = async () => {
 
   while (!isUnique) {
     urlId = nanoid(8);
-    const urlExists = await Url.findOne({ urlId }); // Use `.exists()` for efficiency
+    const urlExists = await Url.findOne({ urlId });
     if (!urlExists) {
       isUnique = true;
     }
