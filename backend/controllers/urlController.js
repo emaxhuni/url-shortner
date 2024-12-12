@@ -72,8 +72,7 @@ export const redirectUrlandIncreaseClickCount = asyncHandler(async (req, res) =>
 
         await Url.findByIdAndUpdate(existingUrl._id, { $inc: { "clicks": 1 } }, { new: true });
 
-        return res.status(200).redirect(existingUrl.url);
-        
+        return res.status(200).json({ originalUrl: existingUrl.url });
     } catch (error) {
         res.status(500).json({ message: 'Server Error' });
         throw new Error(error.message);
