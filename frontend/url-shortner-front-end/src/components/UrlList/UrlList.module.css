@@ -1,0 +1,22 @@
+.urlList {
+    background-color: #efefef;
+    height: 100vh;
+    overflow: auto;
+    scrollbar-width: none;
+}
+
+.logo {
+    width: 200px;
+    margin-bottom: 60px;
+    padding: 60px 60px 0px 60px;
+}
+
+.urlListContainer {
+    padding: 0px 60px;
+}
+
+.sideUrlTitle {
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 0;
+} 
