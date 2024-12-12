@@ -32,7 +32,6 @@ Create the .env File
 
 At the root directory, create a .env file with the following example configuration:
 
-Copy code
 NODE_ENV=development
 PORT=5000
 MONGO_URI=<Your MongoDB Connection URI>
