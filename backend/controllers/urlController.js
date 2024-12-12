@@ -70,7 +70,7 @@ export const redirectUrlandIncreaseClickCount = asyncHandler(async (req, res) =>
             return
         }
 
-        await Url.findByIdAndUpdate(existingUrl._id, { $inc: { "clicks": 1 } });
+        await Url.findByIdAndUpdate(existingUrl._id, { $inc: { "clicks": 1 } }, { new: true });
 
         return res.status(200).redirect(existingUrl.url);
         
