@@ -47,3 +47,39 @@
   background-color: #aa54a7;
   transition: background-color 0.4s;
 }
+
+@media only screen and (max-width: 768px) {
+  .urlShortner {
+    width: 65%;
+    padding: 60px 0 0 20px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .urlInput {
+    width: 200px;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  .main {
+    flex-direction: column-reverse;
+  }
+
+  .urlShortner {
+    width: auto;
+    padding: 60px 30px;
+  }
+
+  .urlInputContainer {
+    flex-direction: column;
+    row-gap: 10px;
+  }
+
+  .urlInput {
+    width: 300px;
+  }
+}

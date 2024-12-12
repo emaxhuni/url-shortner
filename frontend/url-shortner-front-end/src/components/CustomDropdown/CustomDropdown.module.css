@@ -53,3 +53,31 @@
 .expirationOption:last-child {
     border-bottom: none;
 }
+
+@media only screen and (max-width: 768px) {
+    .dropdown {
+        width: 200px
+    }
+
+    .expirationSelect {
+        font-size: 14px;
+    }
+
+    .expirationOption {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 470px) {
+    .urlList {
+        width: 100%;
+    }
+
+    .expirationSelect {
+        margin: 0;
+    }
+
+    .expirationContent {
+        margin-left: 0;
+    }
+}
