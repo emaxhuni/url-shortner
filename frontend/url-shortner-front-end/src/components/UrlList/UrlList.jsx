@@ -43,13 +43,17 @@ const UrlList = ({ list }) => {
     try {
       const response = await fetch(`/api/url/${url.urlId}`, {
         method: 'GET',
-      });
+    });
 
       if (!response.ok) {
         throw new Error('Failed to increment click count');
       }
 
       fetchUrls();
+
+      const { originalUrl } = await response.json();
+
+      window.open(originalUrl, '_blank');
       
     } catch (error) {
       console.error('Error incrementing click count:', error);

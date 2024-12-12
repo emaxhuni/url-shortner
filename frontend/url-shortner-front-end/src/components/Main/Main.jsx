@@ -1,6 +1,7 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import UrlList from '../UrlList/UrlList.jsx';
+import CustomDropdown from '../CustomDropdown/CustomDropdown.jsx';
 
 import classes from './Main.module.css';
 
@@ -8,6 +9,21 @@ function Main() {
     const [list, setList] = useState([]);
     const [inputUrl, setInputUrl] = useState('');
     const [expiration, setExpiration] = useState('');
+    const [selectedOption, setSelectedOption] = useState('Add expiration date');
+
+
+    const options = [
+      { value: 1, label: '1 minute' },
+      { value: 5, label: '5 minutes' },
+      { value: 30, label: '30 minutes' },
+      { value: 60, label: '1 hour' },
+      { value: 300, label: '5 hours' },
+    ];
+
+    const handleSelect = (option) => {
+      setExpiration(+option.value)
+      setSelectedOption(option.label);
+    };
 
     const handleShortenUrl = async () => {
         if (!inputUrl) {
@@ -37,6 +53,7 @@ function Main() {
     
           setInputUrl('');
           setExpiration('');
+          setSelectedOption('Select an Option');
         } catch (error) {
           console.error('Error shortening URL:', error);
           alert('An error occurred while shortening the URL. Please try again.');
@@ -55,20 +72,7 @@ function Main() {
             value={inputUrl}
             onChange={(e) => setInputUrl(e.target.value)}
         />
-        <select
-          value={expiration}
-          onChange={(e) => setExpiration(+e.target.value)}
-          className={classes.expirationSelect}
-        >
-          <option className={classes.expirationOption} value="" disabled>
-            Add expiration date
-          </option>
-          <option className={classes.expirationOption} value="1">1 minute</option>
-          <option className={classes.expirationOption} value="5">5 minutes</option>
-          <option className={classes.expirationOption} value="30">30 minutes</option>
-          <option className={classes.expirationOption} value="60">1 hour</option>
-          <option className={classes.expirationOption} value="300">5 hours</option>
-        </select>
+        <CustomDropdown options={options} onOptionSelect={handleSelect} selectedOption={selectedOption} />
     </div>
     <button 
       className={classes.shortenBtn} 

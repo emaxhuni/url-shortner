@@ -12,6 +12,8 @@
 
 .shortenUrl {
     color: #9bb7f4;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .deleteUrl {
